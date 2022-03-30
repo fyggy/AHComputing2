@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <title>What does this site do?</title>
+    <link rel="stylesheet" href="MathQuill/mathquill.css"/>
+    <link rel="stylesheet" href="media/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="MathQuill/mathquill.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <script>
+		let MQ = MathQuill.getInterface(2);
+	</script>
+</head>
+<body>
+<section class="main">
+    <br>
+    <a href="index.php"><img src="media/back.png" alt="Click here to go Back" width=50px height="50px" class="backButton"></a>
+    <h1 class="title">What does this site do?</h1>
+    <div class="form">
+    <p class="explain">
+        <span class="tab"></span>In short: this site is a method of visualising functions on complex numbers. It takes
+        gridlines and displays the transformation after the application of the inputted function. If this means nothing
+        to you, then read on.
+    </p>
+    <h2 class="subtitle">Complex numbers</h2>
+    <p class="explain">
+        <span class="tab"></span>The complex numbers is an extension of the real numbers. The real numbers are numbers
+        that we deal with every day, numbers like <span class="render">3, -2.45, \frac{2}{3}</span>or even
+        <span class="render"> \pi</span>. However, they cannot do everything. In your life, you have probably squared a
+        lot of numbers, and will have noticed that, if you square a number, it is always positive. The reason for this
+        is quite simple: a positive number times a positive number is positive, and a negative number times a negative
+        number is also a positive number. So now ask yourself: what is<span class="render">\sqrt{-1}</span>? Remember
+        that the square root sign means "what number squared gives negative one". However, we just established that
+        this is impossible, as any square number is positive. So that's just it then? Do we just say it doesn't exist?
+        Well, mathematicians think not. What if we just made up a number that fits that description? All the other
+        numbers are made up anyways, whats one more?. Lets call this new "imaginary" number
+        <span class="render">i</span>, and so, the field of complex analysis was born.
+    </p><br>
+    <p class="explain">
+        <span class="tab"></span>We can add complex numbers and real numbers together, like anything else, but we can't
+        simplify it like usual. For example, <span class="render">2+i</span> is just <span class="render">2+i</span>.
+        We can also multiply <span class="render">i</span> by a real number, such as <span class="render">3i</span>.
+        Thus, a complex number can be any number of the form <span class="render">a+bi</span> where
+        <span class="render">a</span> and <span class="render">b</span> are both real numbers. Adding and multiplying
+        complex numbers is exactly the same to how you perform operations with real numbers. Simply treat
+        <span class="render">i</span> like a variable instead of a number. For example:
+    </p>
+    <p class="equation">
+        <span class="render">(3-4i) + (7+12i) = (3+7) + (-4+12)i</span> <br>
+        <span class="render" style="position: relative; left: 23px;">= 10+8i</span><br><br>
+        <span class="render">(3-4i) \cdot (7+12i) = 3\cdot7-4i\cdot7+3\cdot12i-4i\cdot12i</span> <br>
+        <span class="render" style="position: relative; left: 30.5px;">= 21-28i+36i-48{i}^{2}</span> <br>
+        <span class="render" style="position: relative; left: -1px;">= 21+8i+48</span> <br>
+        <span class="render" style="position: relative; right: 19px;">= 69+8i</span> <br>
+    </p>
+    <h2 class="subtitle">Visualisations</h2>
+
+
+    <p class="explain">
+        <span class="tab"></span>Complex numbers can be thought of as coordinates on a 2-d plane. Take, for example,
+        the number <span class="render">4+3i</span>. It can be visualised as the point 4 along and 3 up, like so.<br>
+        <img src="media/threefour.png" width=451" height="339" alt="A grid with a point four along and three up"><br>
+        <span class="tab"></span>Every point on a 2-d plane can be expressed this way, meaning that actually, in
+        reality, the 2-d plane is actually just a bunch of complex numbers in disguise.
+    </p> <br>
+    <p class="explain">
+        <span class="tab"></span>Now, you might be wondering how we visualise a function of these
+        numbers. But first, what is a function? Well, in simple terms, a function takes a number as input, and gives a
+        number as an output. in some senses, it "transforms" this number into a different number. Working with real
+        numbers, we can visualise this quite easily. All you need is 2 dimensions to properly visualise a function: one
+        for the input, and one for the output. This is the traditional method to visualise functions. However, with
+        complex numbers, this is not possible. We already needed 2 dimensions to display a single complex number, how
+        are we going to visualise the connection between 2 of them? The only way to do this seems to be to use 4
+        dimensions, which the average human cannot comprehend properly.
+    </p> <br>
+    <p class="explain">
+        <span class="tab"></span>This is the motivation behind this program. Here, we cheat by not explicitly showing
+        the input point. Instead, we convey the information by calling the function on every point on the plane, and
+        then display the shape that it makes afterwards. To show the shape of the plane, we show the way that the
+        gridlines change. To preserve some of the input information, the lines move from the initial state before
+        transformation, to the final state after transformation.
+    </p> <br>
+    <p class="explain">
+        <span class="tab"></span>As an example, take the function<span class="render">f(x)=x^2</span>. On the real
+        number line, this method is not very interesting, looking like this:
+        <img src="media/realTransformation.png" alt="The transformation of a number line to its transformed equivalent.
+        Top looks like a normal number line, bottom looks like a number line but the marks consistently get further
+        away from each other." style="width: 800px; height: auto; margin: 0;"><br>
+        <span class="tab"></span>However, using complex numbers, the transformation now looks like this:
+        <img src="media/complexTransformation.gif" alt="The transformation of gridlines to its transformed equivalent.
+        Left looks like many lines, Right looks like many parabolas intersecting"><br>
+        <span class="tab"></span>This program allows you to visualise the transformation under any function, from any
+        set of input gridlines. This is not the only way to visualise complex functions, but it allows for noticing
+        similarities between 2 functions, and is quite intuitive.
+    </p> <br><br>
+    <h2 class="subtitle">How to use this site</h2>
+    <div class="explain">
+        <span class="tab"></span>First, enter a function into the input box. This is the function which will define the
+        transformation. Then, enter your input space, as due to the limitations of computers, we are not able to transform
+        the entire plane, only a section of it. The input space is entered as a rectangle. This line:
+        <br> <br>
+        <input class="numBox" type="number" name="lowerx" id="lowerx" step="0.001" size=12>
+        <div class="numBox"><span class="render"><\Re(x)<</span></div>
+        <input class="numBox clearfix" type="number" name="upperx" id="upperx" step="0.001" size=12>
+        <br> <br>
+        represents where the left and right sides of this rectangle fall, and this line:
+        <br> <br>
+        <input class="numBox" type="number" name="lowery" step="0.001" size=12>
+        <div class="numBox"><span class="render"><\Im(x)<</span></div>
+        <input class="numBox" style="position: relative; left: 4.66px" type="number" name="uppery" step="0.001" size=12>
+        <br> <br>
+        represents where the top and bottom sides of this rectangle fall. For example,
+        <span class="render">-5<\Re(x)<10,\ \ 1<\Im(x)<3</span> would represent the rectangle
+        <img src="media/shape.png" style="width:800px; height: auto;" alt="A long and thin rectangle with vertices
+        (-5, 1), (-5. 3), (10, 3), (10, 1)"> <br>
+        <span class="tab"></span>Lines are then placed within this rectangle, spaced by an amount, called line step or
+        line spacing. For example, for a spacing of 0.5, the above rectangle would have lines placed like so
+        <img src="media/lines.png" style="width: 800px; height: auto;" alt="A rectangle with red and blue evenly spaced
+        lines. There are 5 blue lines running from left to right, and 31 red lines running from top to bottom"><br>
+        <span class="tab"></span>These lines are then transformed by the inputted function. The parameter "precision" is
+        then used to determine how precise the function is to be evaluated as: minimum means 50 points, low means 100
+        points, medium means 500 points, high means 1000 points, and maximum means 5000 points. If a function seems
+        broken; either it has parts that are missing, or lines that dont seem like they are in the right place, then
+        increasing the precision likely will make those artefacts disappear.
+    </div>
+    <p class="explain">
+        <span class="tab"></span>Finally, you'll enter how you want to view the transformation. First, enter where you
+        want to center your view. Simply enter a complex number, and the center of the screen will be that number.
+        The width, however, is slightly more complicated. The width represents the distance between the center point of
+        the screen and the edge of the screen. For example, for a view centered at <span class="render">0+0i</span>,
+        and with a radius of 10, then the point at the center of the left edge of the screen will be -10+0i and the
+        poit and the point at the center of the right edge of the screen will be 10+0i. The points at the top and
+        bottom, however, are determined by your screen width and height. Intuitively, the width is how zoomed in the
+        output is.
+    </p>
+        <br><br>
+    </div>
+</section>
+<script>
+    // render spans using MathQuill
+    statics = document.getElementsByClassName("render")
+    let l = statics.length
+    for (let i = 0; i < l; i++) {
+        MQ.StaticMath(statics[i])
+    }
+</script>
+</body>
+</html>
